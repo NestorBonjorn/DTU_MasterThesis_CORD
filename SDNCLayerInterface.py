@@ -57,7 +57,7 @@ class SDNCLayerInterface:
         """ Send REST API POST call to the given fabric_service (SDN controller) with the body generated from the 
         given data.
 
-        :param data: (Python dictoinary) data used to generate the body of the REST API POST call.
+        :param data: (Python dictionary) data used to generate the body of the REST API POST call.
         :param fabric_service: (XOS FabricService) SDN controller.
         
         :returns: (Boolean) success (1 if success, 0 if fail)
