@@ -62,7 +62,7 @@ class VIMLayerInterface:
         :returns: (String) image id
         """
 
-    def add_role_to_user(role, user, controller, site=None, slice=None):
+    def add_user_role(role, user, controller, site=None, slice=None):
         """ Add given role to given user on the given site or slice of the given controller.
         
         :param role: (XOS Role) role to be added to the given user
