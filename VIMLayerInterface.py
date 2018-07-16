@@ -121,22 +121,24 @@ class VIMLayerInterface:
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def get_networks(controller, network_id=None):
-        """ Retrieve a listing of networks from the given controller. If network_id is provided, only the network whose
-        id matches the given network_id is returned.
+    def get_networks(controller, network_id=None, network_name=None):
+        """ Retrieve a listing of networks from the given controller. If network_id or network_name is provided, only
+        the network whose id or name matches the given network_id or network_name, respectively, is returned.
         
         :param controller: (XOS Controller) controller.
         :param network_id: (String) network id.
+        :param network_name: (String) network name.
 
         :returns: (list of dictionaries) list of dictionaries with networks information from the controller.
         """
 
-    def get_images(controller, image_id=None):
-        """ Retrieve a listing of images from the given controller. If image_id is provided, only the image whose id
-        matches the given image_id is returned.
+    def get_images(controller, image_id=None, image_name=None):
+        """ Retrieve a listing of images from the given controller. If image_id or image_name is provided, only the image
+        whose id or name matches the given image_id or image_name, respectively, is returned.
         
         :param controller: (XOS Controller) controller.
         :param image_id: (String) image id.
+        :param image_name: (String) image name.
 
         :returns: (list of dictionaries) list of dictionaries with images information from the controller.
         """
@@ -159,69 +161,77 @@ class VIMLayerInterface:
         :returns: (String) admin role name.
         """    
 
-    def delete_site(site_id, controller):
-        """ Delete site whose id matches the given site_id from the given controller.
+    def delete_site(controller, site_id=None, site_name=None):
+        """ Delete site whose id or name matches the given site_id or site_name, respectively, from the given controller.
 
-        :param site_id: (String) site_id of the site to be deleted.
         :param controller: (XOS Controller) controller.
+        :param site_id: (String) id of the site to be deleted.
+        :param site_name: (String) name of the site to be deleted.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_slice(slice_name, controller):
-        """ Delete given slice whose name matches the given slice_name from the given controller.
+    def delete_slice(controller, slice_id=None, slice_name=None):
+        """ Delete given slice whose id or name matches the given slice_id or slice_name, respectively, from the given 
+        controller.
 
+        :param controller: (XOS Controller) controller.
+        :param slice_id: (String) id of the slice to be deleted.
         :param slice_name: (String) name of the slice to be deleted.
-        :param controller: (XOS Controller) controller.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_user(user_id, controller):
-        """ Delete user whose id matches the given user_id from the given controller.
+    def delete_user(controller, user_id=None):
+        """ Delete user whose id or name matches the given user_id or user_name from the given controller.
         
-        :param user_id: (String) user_id of the user to be deleted.
         :param controller: (XOS Controller) controller.
+        :param user_id: (String) id of the user to be deleted.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_network(network_name, controller):
-        """ Delete network whose name matches the given network_name from the given controller.
+    def delete_network(controller, network_id=None, network_name=None):
+        """ Delete network whose id or name matches the given network_id or network_name from the given controller.
 
+        :param controller: (XOS Controller) controller.
+        :param network_id: (String) id of the network to be deleted.
         :param network_name: (String) name of the network to be deleted.
-        :param controller: (XOS Controller) controller.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_user_role(role_name, user_id, controller, site_id=None, slice_id=None):
+    def delete_user_role(role_name, controller, user_id, site_id=None, site_name=None, slice_id=None, slice_name=None):
         """ Delete role whose name matches the given role_name from the user whose id matches the given user_id from 
-        the given controller in the given site or slice whose id match the given site_id or slice_id respectively.
+        the given controller from a site or slice. The site or slice are obtained from the given site_id or site_name, 
+        or the given slice_id or slice_name, respectively. 
 
         :param role_name: (String) name of the role to be deleted. 
         :param user_id: (String) id of the user.
         :param controller: (XOS Controller) controller.
         :param site_id: (String) id of the site.
+        :param site_name: (String) name of the site.
         :param slice_id: (String) id of the slice.
+        :param slice_name: (String) name of the slice.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_instance(instance_name, controller):
-         """ Delete instance whose name matches the given instance_name from the given controller.
+    def delete_instance(controller, instance_id=None, instance_name=None):
+         """ Delete instance whose id or name matches the given instance_id or instance_name from the given controller.
 
-        :param instance_name: (String) name of the instance to be deleted.
         :param controller: (XOS Controller) controller.
+        :param instance_id: (String) id of the instance to be deleted.
+        :param instance_name: (String) name of the instance to be deleted.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_port(port_id, controller):
+    def delete_port(controller, port_id=None):
         """ Delete port whose id matches the given port_id from the given controller.
         
-        :param port_id: (String) id of the port to be deleted.
         :param controller: (XOS Controller) controller.
+        :param port_id: (String) id of the port to be deleted.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
