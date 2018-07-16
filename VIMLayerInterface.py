@@ -111,12 +111,14 @@ class VIMLayerInterface:
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def quotas_update(slice_id, max_instances, controller):
-        """ Update quotas for the given slice in the given controller.
+    def quotas_update(max_instances, controller, slice_id=None, slice_name=None):
+        """ Update quotas for the slice whose id or name matches the given slice_id or slice_name in the given 
+        controller.
 
-        :param slice_id: (String) slice id.
         :param max_instances: (int) maximum number of instances in this slice.
         :param controller: (XOS Controller) controller.
+        :param slice_id: (String) slice id.
+        :param slice_name: (String) slice name.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
