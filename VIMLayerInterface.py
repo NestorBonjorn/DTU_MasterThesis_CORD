@@ -21,10 +21,10 @@ class VIMLayerInterface:
     def create_user(user, controller):
         """ Create given user in the given controller.
 
-        :param user: (XOS User) user to be created
-        :param controller: (XOS Controller) controller
+        :param user: (XOS User) user to be created.
+        :param controller: (XOS Controller) controller.
 
-        :returns: (String) user id
+        :returns: (String) user id.
         """
 
     def create_network(network, controller):
@@ -56,22 +56,22 @@ class VIMLayerInterface:
     def add_image(image, controller):
         """  Add given image in the given controller.
 
-        :param image: (XOS Image) image to be added
-        :param controller: (XOS Controller) controller
+        :param image: (XOS Image) image to be added.
+        :param controller: (XOS Controller) controller.
 
-        :returns: (String) image id
+        :returns: (String) image id.
         """
 
     def add_user_role(role, user, controller, site=None, slice=None):
         """ Add given role to given user on the given site or slice of the given controller.
         
-        :param role: (XOS Role) role to be added to the given user
-        :param user: (XOS User) user that gets the role
-        :param controller: (XOS Controller) controller
-        :param site: (XOS Site) site where the user belongs
-        :param slice: (XOS Slice) slice hwere the user belongs
+        :param role: (XOS Role) role to be added to the given user.
+        :param user: (XOS User) user that gets the role.
+        :param controller: (XOS Controller) controller.
+        :param site: (XOS Site) site where the user belongs.
+        :param slice: (XOS Slice) slice hwere the user belongs.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def create_instance(instance, image_name, nics, user_data, availability_zone, metadata, controller):
@@ -85,8 +85,8 @@ class VIMLayerInterface:
         :param availability_zone_filter: (String) availability zone in which to create the server 
                                          (e.g., "nova:remarkable-behavior").
         :param metadata: (dictionary) key value pairs that should be provided as a metadata to the new instance 
-                         (e.g, {"cpu_cores": 4})
-        :param controller: (XOS Controller) controller
+                         (e.g, {"cpu_cores": 4}).
+        :param controller: (XOS Controller) controller.
 
         :returns: (String List) [instance_id, instance_uuid, hostname]. intance_id is the id of the created instance, 
                   instance_uuid is a unique key identifier for the created instance, and hostname is the hostname of the 
@@ -99,16 +99,16 @@ class VIMLayerInterface:
         :param port: (XOS Port) port to be created.
         :param controller: (XOS Controller) controller.
         
-        :returns: (dictionary) dictionary with information of the created port (id, fixed_ips, mac_address)
+        :returns: (dictionary) dictionary with information of the created port (id, fixed_ips, mac_address).
         """
 
     def create_role(role, controller):
         """ Create given role in the given controller.
 
-        :param role: (XOS Role) role to be created
-        :param controller: (XOS Controller) controller
+        :param role: (XOS Role) role to be created.
+        :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def quotas_update(slice_id, max_instances, controller):
@@ -118,31 +118,37 @@ class VIMLayerInterface:
         :param max_instances: (int) maximum number of instances in this slice.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def get_networks(controller):
-        """ Retrieve a listing of networks from the given controller.
+    def get_networks(controller, network_id=None):
+        """ Retrieve a listing of networks from the given controller. If network_id is provided, only the network whose
+        id matches the given network_id is returned.
         
         :param controller: (XOS Controller) controller.
+        :param network_id: (String) network id.
 
-        :returns: (list of dictionaries) list of dictionaries with networks information from the controller
+        :returns: (list of dictionaries) list of dictionaries with networks information from the controller.
         """
 
-    def get_images(controller):
-        """ Retrieve a listing of images from the given controller.
+    def get_images(controller, image_id=None):
+        """ Retrieve a listing of images from the given controller. If image_id is provided, only the image whose id
+        matches the given image_id is returned.
         
         :param controller: (XOS Controller) controller.
+        :param image_id: (String) image id.
 
-        :returns: (list of dictionaries) list of dictionaries with images information from the controller
+        :returns: (list of dictionaries) list of dictionaries with images information from the controller.
         """
 
-    def get_ports(controller):
-        """ Retrieve a listing of ports from the given controller.
+    def get_ports(controller, port_id=None):
+        """ Retrieve a listing of ports from the given controller. If port_id is provided, only the port whose id matches
+        the given port_id is returned.
         
         :param controller: (XOS Controller) controller.
+        :param port_id: (String) port id.
 
-        :returns: (list of dictionaries) list of dictionaries with ports information from the controller
+        :returns: (list of dictionaries) list of dictionaries with ports information from the controller.
         """
 
     def get_admin_role(controller):
@@ -159,7 +165,7 @@ class VIMLayerInterface:
         :param site_id: (String) site_id of the site to be deleted.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def delete_slice(slice_name, controller):
@@ -168,7 +174,7 @@ class VIMLayerInterface:
         :param slice_name: (String) name of the slice to be deleted.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def delete_user(user_id, controller):
@@ -177,7 +183,7 @@ class VIMLayerInterface:
         :param user_id: (String) user_id of the user to be deleted.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def delete_network(network_name, controller):
@@ -186,7 +192,7 @@ class VIMLayerInterface:
         :param network_name: (String) name of the network to be deleted.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def delete_user_role(role_name, user_id, controller, site_id=None, slice_id=None):
@@ -199,7 +205,7 @@ class VIMLayerInterface:
         :param site_id: (String) id of the site.
         :param slice_id: (String) id of the slice.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def delete_instance(instance_name, controller):
@@ -208,7 +214,7 @@ class VIMLayerInterface:
         :param instance_name: (String) name of the instance to be deleted.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
     def delete_port(port_id, controller):
@@ -217,5 +223,5 @@ class VIMLayerInterface:
         :param port_id: (String) id of the port to be deleted.
         :param controller: (XOS Controller) controller.
 
-        :returns: (Boolean) success (1 if success, 0 if fail)
+        :returns: (Boolean) success (1 if success, 0 if fail).
         """
