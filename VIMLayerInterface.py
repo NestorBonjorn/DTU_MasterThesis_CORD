@@ -88,7 +88,7 @@ class VIMLayerInterface:
                          (e.g, {"cpu_cores": 4}).
         :param controller: (XOS Controller) controller.
 
-        :returns: (String List) [instance_id, instance_uuid, hostname]. intance_id is the id of the created instance, 
+        :returns: (String list) [instance_id, instance_uuid, hostname]. intance_id is the id of the created instance, 
                   instance_uuid is a unique key identifier for the created instance, and hostname is the hostname of the 
                   hypervisor.
         """
