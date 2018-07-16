@@ -90,7 +90,7 @@ class VIMLayerInterface:
 
         :returns: (String list) [instance_id, instance_uuid, hostname]. intance_id is the id of the created instance, 
                   instance_uuid is a unique key identifier for the created instance, and hostname is the hostname of the 
-                  hypervisor.
+                  hypervisor that manages the created instance.
         """
 
     def create_port(port, controller):
