@@ -46,8 +46,7 @@ class VIMLayerInterface:
                      assigned to the subnet (e.g., 10.123.0.0/24).
         :param gateway_ip: (String) IP that is assigned to the gateway for this subnet (e.g., 10.123.0.1).
         :param controller: (XOS Controller) controller.
-        :param start_ip: (String) starting address from which the IP should be allocated from the subnet 
-                                    pool.
+        :param start_ip: (String) starting address from which the IP should be allocated from the subnet pool.
         :param end_ip: (String) last IP that should be assigned from the subnet pool.
 
         :returns: (String) subnet id.
