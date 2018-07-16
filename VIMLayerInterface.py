@@ -67,8 +67,8 @@ class VIMLayerInterface:
         :param role: (XOS Role) role to be added to the given user.
         :param user: (XOS User) user that gets the role.
         :param controller: (XOS Controller) controller.
-        :param site: (XOS Site) site where the user belongs.
-        :param slice: (XOS Slice) slice hwere the user belongs.
+        :param site: (XOS Site) site where the user belongs to.
+        :param slice: (XOS Slice) slice where the user belongs to.
 
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
