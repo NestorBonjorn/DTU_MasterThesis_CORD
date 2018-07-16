@@ -201,7 +201,7 @@ class VIMLayerInterface:
         :returns: (Boolean) success (1 if success, 0 if fail).
         """
 
-    def delete_user_role(role_name, controller, user_id, site_id=None, site_name=None, slice_id=None, slice_name=None):
+    def delete_user_role(role_name, user_id, controller, site_id=None, site_name=None, slice_id=None, slice_name=None):
         """ Delete role whose name matches the given role_name from the user whose id matches the given user_id from 
         the given controller from a site or slice. The site or slice are obtained from the given site_id or site_name, 
         or the given slice_id or slice_name, respectively. 
